@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bmcbfeprgs0xt"]
+[gd_scene load_steps=2 format=3 uid="uid://bmcbfeprgs0xt"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_6gffy"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6gffy")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -21,6 +24,44 @@ alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="StartGame" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 disabled = true
+text = "Play"
+
+[node name="Multiplayer" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Multiplayer"
+
+[node name="Settings" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Settings"
+
+[node name="Credits" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Credits"
+
+[node name="Quit" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Confirmation Dialogue" type="PopupMenu" parent="."]
+mode = 2
+title = "Exit?"
+initial_position = 1
+size = Vector2i(262, 100)
+item_count = 3
+item_0/text = "Are you sure you want to exit?"
+item_0/id = 0
+item_0/disabled = true
+item_1/text = "Yes"
+item_1/id = 1
+item_2/text = "No"
+item_2/id = 2
+
+[connection signal="button_down" from="HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_button_down"]
+[connection signal="id_pressed" from="Confirmation Dialogue" to="." method="_on_confirmation_dialogue_id_pressed"]
