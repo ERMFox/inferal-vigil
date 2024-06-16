@@ -6,20 +6,26 @@ var Player
 var World
 var EnemyTypes
 var difficulty
+var boundries = null
 func _ready():
 	# initiating the player
-	Player = $Player
-	var player_character_path = self.player_data if self.player_data else "res://PlayerCharacters/hero.tscn"
-	var player_character = load(player_character_path)
-	Player.add_child(player_character, "PlayerCharacter")
+	Player = find_child("Player")
+	print(Player)
+	const player_character_path = "res://PlayerCharacters/hero.tscn"
+	var player_character = preload(player_character_path).instantiate()
+	Player.add_child(player_character)
 	# initiating the scene
-	var scene_path = self.scene_data if self.scene_data else "res://Worlds/grasslands.tcsn"
-	var loaded_scene = load(scene_path)
-	self.add_child(loaded_scene)
+	#var scene_path = self.scene_data if self.scene_data else "res://Worlds/grasslands.tcsn"
+	#var loaded_scene = load(scene_path)
+	#self.add_child(loaded_scene)
 	# initiating world settings
-	World = $World
-	EnemyTypes = World.getEnemyTypes()
-	difficulty = World.getDifficulty()
+	#World = $World
+	#EnemyTypes = World.getEnemyTypes()
+	#difficulty = World.getDifficulty()
+	#boundries = world.getsize (should return a array of boundries)
+	if (!boundries):
+		boundries = [-500, 500, -300, 300]
+	Player.loader(boundries)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

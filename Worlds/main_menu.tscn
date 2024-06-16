@@ -13,7 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_6gffy")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(559, 315)
+position = Vector2(587, 324)
 texture = ExtResource("2_67rsj")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -32,7 +32,6 @@ alignment = 1
 [node name="StartGame" type="Button" parent="HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-disabled = true
 text = "Play"
 
 [node name="Multiplayer" type="Button" parent="HBoxContainer/VBoxContainer"]
@@ -68,5 +67,6 @@ item_1/id = 1
 item_2/text = "No"
 item_2/id = 2
 
+[connection signal="button_down" from="HBoxContainer/VBoxContainer/StartGame" to="." method="_on_start_game_button_down"]
 [connection signal="button_down" from="HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_button_down"]
 [connection signal="id_pressed" from="Confirmation Dialogue" to="." method="_on_confirmation_dialogue_id_pressed"]

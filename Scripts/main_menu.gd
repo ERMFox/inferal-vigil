@@ -21,3 +21,8 @@ func _on_confirmation_dialogue_id_pressed(id):
 	if id == 1:
 		get_tree().quit()
 		
+
+
+func _on_start_game_button_down():
+	get_tree().change_scene_to_file("res://base_world.tscn")
+	pass # Replace with function body.

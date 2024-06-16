@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dvaepssl2hi73"]
+
+[ext_resource type="Texture2D" uid="uid://cnigp3qk8xapu" path="res://Assets/xp-meter-and-button.png" id="1_lgpko"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y85ae"]
+texture = ExtResource("1_lgpko")
+modulate_color = Color(0.103744, 0.103744, 0.103744, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7shb"]
+texture = ExtResource("1_lgpko")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a6441"]
+texture = ExtResource("1_lgpko")
+modulate_color = Color(0.617455, 0.617455, 0.617455, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x5sm6"]
+texture = ExtResource("1_lgpko")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gkdy7"]
+texture = ExtResource("1_lgpko")
+modulate_color = Color(0.851769, 0.851769, 0.851769, 1)
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_y85ae")
+Button/styles/focus = SubResource("StyleBoxTexture_u7shb")
+Button/styles/hover = SubResource("StyleBoxTexture_a6441")
+Button/styles/normal = SubResource("StyleBoxTexture_x5sm6")
+Button/styles/pressed = SubResource("StyleBoxTexture_gkdy7")
