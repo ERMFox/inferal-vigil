@@ -25,7 +25,7 @@ func _ready():
 	pass # Replace with function body.
 
 func loader(boundries):
-	character = get_child(2)
+	character = get_child(3)
 	speed = character.get_speed()
 	var parent = get_parent()
 	min_x = boundries[0]
@@ -67,4 +67,11 @@ func play_audio(path: String):
 func _on_audio_stream_player_2d_finished():
 	audio_paths.shuffle()
 	play_audio(audio_paths[0])
+	pass # Replace with function body.
+
+func test():
+	print(get_child(0).get_viewport())
+
+func _on_area_2d_area_entered(area):
+	print("yes")
 	pass # Replace with function body.

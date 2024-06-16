@@ -30,5 +30,5 @@ func _on_start_game_button_down():
 
 func _on_audio_stream_player_2d_finished():
 	var audio_player = find_child("AudioStreamPlayer2D")
-	audio_player.play_audio()
+	audio_player.play()
 	pass # Replace with function body.

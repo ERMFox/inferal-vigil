@@ -7,6 +7,8 @@ var World
 var EnemyTypes
 var difficulty
 var boundries = null
+var enemyScene = preload("res://Enemies/base_enemy.tscn") 
+
 func _ready():
 	# initiating the player
 	Player = find_child("Player")
@@ -24,9 +26,20 @@ func _ready():
 	#difficulty = World.getDifficulty()
 	#boundries = world.getsize (should return a array of boundries)
 	if (!boundries):
-		boundries = [-500, 500, -300, 300]
+		boundries = [-1000, 1000, -600, 600]
 	Player.loader(boundries)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func randomVector():
+	var x = randf_range(boundries[0] - 100 , boundries[1] + 100)
+	var y = randf_range(boundries[2] - 100, boundries[3] + 100)
+	return Vector2(x,y) 
+
+func _on_timer_timeout():
+	var new_enemy = enemyScene.instantiate()
+	new_enemy.position = randomVector()
+	add_child(new_enemy)
+	pass # Replace with function body.
