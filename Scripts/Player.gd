@@ -73,5 +73,5 @@ func test():
 	print(get_child(0).get_viewport())
 
 func _on_area_2d_area_entered(area):
-	print("yes")
+	get_tree().change_scene_to_file("res://Worlds/game_over.tscn")
 	pass # Replace with function body.
