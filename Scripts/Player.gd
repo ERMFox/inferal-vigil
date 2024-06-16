@@ -51,6 +51,10 @@ func _input(event):
 		character.playAnimationUp()
 	elif (Input.is_action_pressed("down")):
 		character.playAnimationBack()
+	elif (Input.is_action_pressed("left")):
+		character.playAnimationSide(false)
+	elif (Input.is_action_pressed("right")):
+		character.playAnimationSide(true)
 	else:
 		character.stopAnimation()
 

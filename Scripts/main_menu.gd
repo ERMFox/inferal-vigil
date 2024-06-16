@@ -26,3 +26,9 @@ func _on_confirmation_dialogue_id_pressed(id):
 func _on_start_game_button_down():
 	get_tree().change_scene_to_file("res://base_world.tscn")
 	pass # Replace with function body.
+
+
+func _on_audio_stream_player_2d_finished():
+	var audio_player = find_child("AudioStreamPlayer2D")
+	audio_player.play_audio()
+	pass # Replace with function body.

@@ -16,3 +16,9 @@ func stopAnimation():
 	stop()
 func playAnimationBack():
 	play("back")
+func playAnimationSideWays(flip):
+	if (!flip):
+		flip_h = true
+	else:
+		flip_h = false
+	play("sideways")

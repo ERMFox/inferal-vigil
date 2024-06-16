@@ -19,3 +19,5 @@ func stopAnimation():
 	sprite.stopAnimation()
 func playAnimationBack():
 	sprite.playAnimationBack()
+func playAnimationSide(flip):
+	sprite.playAnimationSideWays(flip)
