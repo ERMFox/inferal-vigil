@@ -7,12 +7,25 @@ var min_x
 var min_y
 var max_x
 var max_y
+var audioPlayer
+var audio_paths = [
+	"res://Music/Galactic Rap.mp3",
+	"res://Music/Mesmerizing Galaxy Loop.mp3",
+	"res://Music/SCP-x5x.mp3",
+	"res://Music/SCP-x6x.mp3",
+	"res://Music/SCP-x5x.mp3"
+	# Add more paths as needed
+]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	audioPlayer = get_child(1)
+	audio_paths.shuffle()
+	play_audio(audio_paths[0])
 	pass # Replace with function body.
 
 func loader(boundries):
-	character = get_child(1)
+	character = get_child(2)
 	speed = character.get_speed()
 	var parent = get_parent()
 	min_x = boundries[0]
@@ -40,3 +53,14 @@ func _input(event):
 		character.playAnimationBack()
 	else:
 		character.stopAnimation()
+
+func play_audio(path: String):
+	audioPlayer.stop()  # Stop any currently playing audio
+	var audio_resource = load(path)
+	audioPlayer.stream = audio_resource
+	audioPlayer.play()
+
+func _on_audio_stream_player_2d_finished():
+	audio_paths.shuffle()
+	play_audio(audio_paths[0])
+	pass # Replace with function body.
