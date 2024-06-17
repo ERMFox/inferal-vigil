@@ -34,3 +34,6 @@
   - Licensed under Creative Commons: By Attribution 4.0 License
   - http://creativecommons.org/licenses/by/4.0/
 
+## Image Copyright
+
+All images are © ERMFox and are protected by copyright law. See the [COPYRIGHT](COPYRIGHT.txt) file for more information.
