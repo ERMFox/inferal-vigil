@@ -25,7 +25,7 @@ func _ready():
 	pass # Replace with function body.
 
 func loader(boundries):
-	character = get_child(3)
+	character = get_child(2)
 	speed = character.get_speed()
 	var parent = get_parent()
 	min_x = boundries[0]
@@ -72,6 +72,6 @@ func _on_audio_stream_player_2d_finished():
 func test():
 	print(get_child(0).get_viewport())
 
-func _on_area_2d_area_entered(area):
+func take_damage():
 	get_tree().change_scene_to_file("res://Worlds/game_over.tscn")
 	pass # Replace with function body.

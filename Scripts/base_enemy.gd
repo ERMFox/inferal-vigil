@@ -17,7 +17,12 @@ func _physics_process(delta):
 	if direction.length_squared() > 0:
 		var target_rotation = atan2(direction.y, direction.x)
 		rotation = lerp_angle(rotation, target_rotation + 90, 1 * delta)
+	if (hp <= 0):
+		get_parent().remove_child(self)
 	pass
+
+func take_damage(ammount):
+	hp = hp-ammount
 
 func get_xp():
 	return xp

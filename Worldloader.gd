@@ -40,6 +40,6 @@ func randomVector():
 
 func _on_timer_timeout():
 	var new_enemy = enemyScene.instantiate()
-	new_enemy.position = randomVector()
+	new_enemy.position = get_child(0).position + randomVector()
 	add_child(new_enemy)
 	pass # Replace with function body.
