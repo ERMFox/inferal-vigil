@@ -77,5 +77,10 @@ func _on_timer_timeout():
 
 
 func _on_area_2d_area_entered(area):
+	if (area.name == "RotationNode"):
+		return
 	get_parent().take_damage()
 	pass # Replace with function body.
+
+func isPlayer():
+	return true 

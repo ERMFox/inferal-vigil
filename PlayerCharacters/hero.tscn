@@ -268,6 +268,7 @@ shape = SubResource("CapsuleShape2D_r7csj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RotationNode"]
 position = Vector2(91, 0)
 shape = SubResource("CircleShape2D_p1p0x")
+disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RotationNode/CollisionShape2D"]
 texture_filter = 1
@@ -275,6 +276,9 @@ position = Vector2(-91, 0)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_fpuva")
 script = ExtResource("8_ffbv2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotationNode"]
+polygon = PackedVector2Array(0, 0, 91, -46, 91, 46)
 
 [node name="MousePosition" type="Node2D" parent="."]
 position = Vector2(83, -2)
