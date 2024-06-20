@@ -190,11 +190,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r7csj"]
-radius = 32.0
-height = 120.0
+radius = 23.0
+height = 104.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p1p0x"]
-radius = 46.0109
+radius = 52.345
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gh638"]
 atlas = ExtResource("7_808to")
@@ -278,7 +278,7 @@ sprite_frames = SubResource("SpriteFrames_fpuva")
 script = ExtResource("8_ffbv2")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotationNode"]
-polygon = PackedVector2Array(0, 0, 91, -46, 91, 46)
+polygon = PackedVector2Array(0, 0, 91, -52, 91, 53)
 
 [node name="MousePosition" type="Node2D" parent="."]
 position = Vector2(83, -2)

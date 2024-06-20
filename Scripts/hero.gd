@@ -4,6 +4,7 @@ var rotation_offset = Vector2(50, 0)
 var sprite
 var base_damage = 1
 var speed = 400
+var cooldown = 10
 
 var inArea = []
 
@@ -68,6 +69,7 @@ func _on_rotation_node_area_exited(area):
 
 
 func _on_timer_timeout():
+	cooldown -= 1
 	for enemy in inArea:
 		if enemy.has_method("take_damage"):
 			enemy.take_damage(base_damage)
@@ -75,6 +77,10 @@ func _on_timer_timeout():
 	# call getDamage Function of those nodes with value of baseDamage Var
 	pass # Replace with function body.
 
+func dash():
+	var input_direction = Input.get_vector("left", "right", "up", "down")
+	get_parent().position += input_direction * 350
+	cooldown = 10
 
 func _on_area_2d_area_entered(area):
 	if (area.name == "RotationNode"):
@@ -84,3 +90,6 @@ func _on_area_2d_area_entered(area):
 
 func isPlayer():
 	return true 
+func _input(event):
+	if (Input.is_action_pressed("SpecialMoveOne") && cooldown <= 0):
+		dash()
