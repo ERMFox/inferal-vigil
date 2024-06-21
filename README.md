@@ -1,6 +1,5 @@
 #game-on
 
-# TOC
 
 
 ## Licence
