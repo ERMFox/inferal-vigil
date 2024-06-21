@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  toc:
+  update-toc:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,16 +14,16 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: Install markdown-toc
-        run: npm install -g markdown-toc
+      - name: Install doctoc
+        run: npm install -g doctoc
       - name: Generate TOC
-        run: markdown-toc -i README.md
+        run: doctoc README.md
       - name: List directory contents
         run: ls -la
       - name: Commit changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add --all
-          git commit -m 'Update TOC'
+          git add README.md
+          git commit -m 'Update TOC' || echo "No changes to commit"
           git push
