@@ -3,7 +3,7 @@ name: Generate TOC
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   toc:
