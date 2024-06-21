@@ -18,6 +18,8 @@ jobs:
         run: npm install -g markdown-toc
       - name: Generate TOC
         run: markdown-toc -i README.md
+      - name: List directory contents
+        run: ls -la
       - name: Commit changes
         run: |
           git config --global user.name 'github-actions[bot]'
