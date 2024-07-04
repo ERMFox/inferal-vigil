@@ -29,4 +29,4 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git
           git add README.md
           git commit -m 'Update TOC' || echo "No changes to commit"
-          git push origin HEAD:main
+          git push origin HEAD:master
