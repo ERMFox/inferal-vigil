@@ -12,6 +12,8 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+## Description
+This is a TopDown RougeLike Bullet hell made by ERMFox
 
 ## Licence
 [License](./LICENSE)
