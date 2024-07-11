@@ -123,6 +123,8 @@ func _input(event):
 		character.playAnimationSide(false)
 	elif (Input.is_action_pressed("right")):
 		character.playAnimationSide(true)
+	elif (Input.is_action_pressed("switchmouse")):
+		runByMouse = !runByMouse
 	else:
 		character.stopAnimation()
 
