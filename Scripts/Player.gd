@@ -30,7 +30,7 @@ func _ready():
 	pass # Replace with function body.
 
 func loader(boundries):
-	character = get_child(3)
+	character = get_child(4)
 	speed = character.get_speed()
 	var parent = get_parent()
 	rotationNode = get_child(2)
@@ -141,6 +141,10 @@ func _on_audio_stream_player_2d_finished():
 
 func test():
 	print(get_child(0).get_viewport())
+
+func enemycounter(number):
+	get_child(3).count += number
+	get_child(3).updateText()
 
 func take_damage():
 	get_tree().change_scene_to_file("res://Worlds/game_over.tscn")

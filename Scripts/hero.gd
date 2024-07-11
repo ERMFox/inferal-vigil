@@ -75,6 +75,7 @@ func _on_timer_timeout():
 	cooldown -= 1
 	for enemy in inArea:
 		if enemy.has_method("take_damage"):
+			get_parent().enemycounter(1)
 			enemy.take_damage(base_damage)
 	# get all nodes in inArea array
 	# call getDamage Function of those nodes with value of baseDamage Var
