@@ -36,6 +36,9 @@ func _process(delta):
 	$RotationNode.position = rotation_offset.rotated(rotation_angle)
 	
 	pass
+	
+func getRotation():
+	return $RotationNode.rotation
 func get_speed():
 	return speed
 	
