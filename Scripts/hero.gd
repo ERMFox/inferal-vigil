@@ -89,8 +89,14 @@ func dash():
 func _on_area_2d_area_entered(area):
 	if (area.name == "RotationNode"):
 		return
-	get_parent().take_damage()
+	if (area.get_parent().has_method("get_damage")):
+		get_parent().take_damage(area.get_parent().get_damage())
+	if (area.get_parent().has_method("take_damage")):
+		area.get_parent().take_damage(base_damage)
 	pass # Replace with function body.
+
+func get_health():
+	return 100
 
 func isPlayer():
 	return true 

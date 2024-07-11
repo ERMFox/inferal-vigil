@@ -9,6 +9,7 @@ var min_y
 var max_x
 var max_y
 var audioPlayer
+var health
 var runByMouse = true
 var audio_paths = [
 	"res://Music/Galactic Rap.mp3",
@@ -30,7 +31,7 @@ func _ready():
 	pass # Replace with function body.
 
 func loader(boundries):
-	character = get_child(4)
+	character = get_child(5)
 	speed = character.get_speed()
 	var parent = get_parent()
 	rotationNode = get_child(2)
@@ -38,6 +39,8 @@ func loader(boundries):
 	min_y = boundries[2]
 	max_x = boundries[1]
 	max_y = boundries[3]
+	health = character.get_health()
+	get_child(4).updateText(health)
 func getRotation():
 	return character.getRotation()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -146,6 +149,9 @@ func enemycounter(number):
 	get_child(3).count += number
 	get_child(3).updateText()
 
-func take_damage():
-	get_tree().change_scene_to_file("res://Worlds/game_over.tscn")
+func take_damage(ammount):
+	health -= ammount
+	get_child(4).updateText(health)
+	if (health <= 0):
+		get_tree().change_scene_to_file("res://Worlds/game_over.tscn")
 	pass # Replace with function body.

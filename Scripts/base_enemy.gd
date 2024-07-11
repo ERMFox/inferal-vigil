@@ -4,6 +4,7 @@ var hp = 1
 var speed = 100
 var xp = 10
 var player_position
+var damage = 10
 
 func _ready():
 	pass
@@ -30,3 +31,5 @@ func get_hp():
 	return hp 
 func get_speed():
 	return speed
+func get_damage():
+	return damage
