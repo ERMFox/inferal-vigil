@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwcfymeflq4j7"]
+[gd_scene load_steps=8 format=3 uid="uid://cwcfymeflq4j7"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_tb3qm"]
 [ext_resource type="AudioStream" uid="uid://b6sqm85aerri6" path="res://Music/SCP-x7x.mp3" id="2_23op8"]
 [ext_resource type="Texture2D" uid="uid://k0sodbuoo8qo" path="res://Assets/arrow1.png" id="3_swhit"]
 [ext_resource type="Script" path="res://Scripts/arrow.gd" id="4_8s0fq"]
-[ext_resource type="Script" path="res://EnemyCounter.gd" id="5_h5t58"]
-[ext_resource type="Script" path="res://Health Counter.gd" id="6_b2w12"]
+[ext_resource type="Script" path="res://Scripts/EnemyCounter.gd" id="5_h5t58"]
+[ext_resource type="Script" path="res://Scripts/Health Counter.gd" id="6_b2w12"]
+[ext_resource type="Script" path="res://Scripts/XPCounter.gd" id="7_1r36x"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_tb3qm")
@@ -34,5 +35,13 @@ offset_right = -448.0
 offset_bottom = -273.0
 text = "Health: "
 script = ExtResource("6_b2w12")
+
+[node name="XPCounter2" type="Label" parent="."]
+offset_left = -568.0
+offset_top = -275.0
+offset_right = -447.0
+offset_bottom = -252.0
+text = "XP: "
+script = ExtResource("7_1r36x")
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

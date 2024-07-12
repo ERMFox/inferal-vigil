@@ -15,6 +15,7 @@ func _ready():
 	print(Player)
 	const player_character_path = "res://PlayerCharacters/hero.tscn"
 	var player_character = preload(player_character_path).instantiate()
+	player_character.name = "Character"
 	Player.add_child(player_character)
 	# initiating the scene
 	#var scene_path = self.scene_data if self.scene_data else "res://Worlds/grasslands.tcsn"

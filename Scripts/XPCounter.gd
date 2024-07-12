@@ -1,13 +1,13 @@
 extends Label
 
-var count = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	updateText()
+	updateText("0")
 	pass # Replace with function body.
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-func updateText():
-	self.text = "Enemies Killed: %d" %count
+func updateText(count):
+	self.text = "XP: " +count
