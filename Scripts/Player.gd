@@ -125,11 +125,11 @@ func _on_audio_stream_player_2d_finished():
 func enemycounter(number, xp):
 	enemies_killed += number
 	total_xp += xp
-	emit_signal("update_stats")
+	$EnemyCounter.updateText(enemies_killed)
+	$XPCounter2.updateText(total_xp)
 
-func _on_update_stats():
-	$EnemyCounter.text = str(enemies_killed)
-	$XPCounter2.text = str(total_xp)
+
+	
 
 func take_damage(amount):
 	health -= amount
@@ -138,4 +138,11 @@ func take_damage(amount):
 		get_tree().change_scene_to_file("res://Worlds/game_over.tscn")
 
 func update_health_text():
-	$HealthCounter.text = str(health)
+	$HealthCounter.updateText(health)
+
+
+func get_viewport_bounds() -> Rect2:
+	var viewport = get_viewport_rect()
+	var offset = get_viewport().get_canvas_transform().get_origin()
+	viewport.position += offset
+	return viewport

@@ -8,6 +8,7 @@ var EnemyTypes
 var difficulty
 var boundries = null
 var enemyScene = preload("res://Enemies/base_enemy.tscn") 
+signal enemiy_died(xp)
 
 func _ready():
 	# initiating the player
@@ -29,18 +30,41 @@ func _ready():
 	if (!boundries):
 		boundries = [-1000, 1000, -600, 600]
 	Player.loader(boundries)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-func randomVector():
-	var x = randf_range(boundries[0] - 100 , boundries[1] + 100)
-	var y = randf_range(boundries[2] - 100, boundries[3] + 100)
-	return Vector2(x,y) 
+func randomVector() -> Vector2:
+	var viewport_bounds = Player.get_viewport_bounds()
+	var sides = ["top", "bottom", "left", "right"]
+	var side = sides[randi() % sides.size()]
 
+	match side:
+		"top":
+			return Vector2(randf_range(viewport_bounds.position.x, viewport_bounds.position.x + viewport_bounds.size.x), viewport_bounds.position.y)
+		"bottom":
+			return Vector2(randf_range(viewport_bounds.position.x, viewport_bounds.position.x + viewport_bounds.size.x), viewport_bounds.position.y + viewport_bounds.size.y)
+		"left":
+			return Vector2(viewport_bounds.position.x, randf_range(viewport_bounds.position.y, viewport_bounds.position.y + viewport_bounds.size.y))
+		"right":
+			return Vector2(viewport_bounds.position.x + viewport_bounds.size.x, randf_range(viewport_bounds.position.y, viewport_bounds.position.y + viewport_bounds.size.y))
+	return Vector2(0, 0)
 func _on_timer_timeout():
 	var new_enemy = enemyScene.instantiate()
-	new_enemy.position = get_child(0).position + randomVector()
+	var new_position = randomVector()
+
+	while is_within_viewport(new_position, Player.get_viewport_rect()):
+		new_position = randomVector()
+	new_enemy.position = new_position
+	new_enemy.connect("died", Callable(self, "_on_enemy_died"))
 	add_child(new_enemy)
 	pass # Replace with function body.
+	
+func _on_enemy_died(xp):
+	Player.enemycounter(1, xp)
+	
+
+func is_within_viewport(position: Vector2, viewport_rect: Rect2) -> bool:
+	return viewport_rect.has_point(position)

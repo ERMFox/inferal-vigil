@@ -5,7 +5,7 @@ var speed = 100
 var xp = 10
 var player_position: Vector2
 var damage = 10
-signal died
+signal died(xp)
 
 func _ready():
 	player_position = Vector2()
